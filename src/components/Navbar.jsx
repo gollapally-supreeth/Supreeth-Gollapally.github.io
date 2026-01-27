@@ -91,7 +91,7 @@ const Navbar = () => {
                         }}
                     >
                         {/* Mobile: Logo / Brand Name */}
-                        <div className="pl-2">
+                        <div className="md:hidden pl-2">
                             <img src="/assets/logo.png" alt="SG Logo" className="h-8 w-auto object-contain" />
                         </div>
 
