@@ -1,0 +1,59 @@
+SUPREETH GOLLAPALLY
+# gollapallysupreeth@gmail.com — ƒ +91 9491436678 — ï gollapally-supreeth — § gollapally-supreeth
+Professional Summary
+Tech Enthusiast Software Developer skilled in Java, Python, and C, with a passion for AI, automation, and
+full-stack development. Strong in DSA and real-world problem-solving, also experienced in stock trading and risk
+analysis.
+Education
+•
+Anurag University Hyderabad
+Bachelor of Technology - Computer Science and Engineering; GPA: 7.99 July 2024 - Present
+•
+Govt Polytechnic Siddipet
+Diploma - Computer Science and Engineering; GPA: 9.13 Sept 2021 - May 2024
+Skills Summary
+• Languages: C, C++, Java, Python, SQL, HTML, CSS, JavaScript
+• Frameworks : React.js, Next.js, Node.js, Express.js, Tailwind CSS, Django, Flask, GSAP
+• Databases: MongoDB, MySQL, PostgreSQL, SQLite
+• Tools: Git, GitHub, VS Code, Docker, Postman, Jupyter Notebook, XAMPP, Ollama, Wireframe
+• Platforms: Windows, Linux (Ubuntu, Kali), Web, Raspberry Pi, Firebase, Netlify, Railway, Appwrite, Figma
+• Stock Market: Technical Analysis, Chart Patterns, Risk Management, TradingView
+• Soft Skills: Leadership, Team Collaboration, Adaptability and quick learning, Problem Solving, Time Management
+Experience
+•
+Bhuvih HR Solutions Private Limited Remote
+Software Developer - Intern May 2025 – Present
+◦ Engineered secure backend authentication and session management using Django, Supabase, and
+PostgreSQL.
+◦ Coordinated with the frontend team to ensure seamless integration and consistent user experience.
+◦ Worked in Agile sprints using GitHub for issue tracking, version control, and code reviews.
+•
+NSIC Technical Services Centre Hyderabad
+Industrial Trainee Dec 2023 – June 2024
+◦ Gained practical exposure to Phyton, Java, Linux, and backend frameworks like Django.
+◦ Developed and tested backend modules using PostgreSQL, And automated tasks using shell scripts.
+◦ Explored fundamental concepts of Data Science, including data cleaning and analysis using Python libraries.
+Projects
+• E-Library – Digital Library Website § GitHub
+◦ Developed a scalable digital library platform with separate admin/user portals using Node.js,
+MongoDB, and Google Drive.
+◦ Implemented advanced features like category filtering, favorites, and reading interface with intuitive
+navigation.
+◦ Built a fully responsive UI with modern design principles and role-based access control (RBAC).
+◦ Integrated search by title/author with fuzzy matching to improve discoverability
+• Trans-File – Secure File Sharing Platform § GitHub
+◦ Built a secure file transfer system with Appwrite, supporting 500MB uploads, 24-hour expiry, and
+drag-and-drop UI.
+◦ Used React + Vite on frontend and Node.js + Express on backend with modular routing and controller
+logic.
+◦ Integrated GSAP animations, and TailwindCSS for responsive, accessible UI.
+• Student Management System Software § GitHub
+◦ Developed a Python GUI application with Tkinter for managing student profiles, attendance, and
+performance records.
+◦ Integrated backend with MySQL and optimized queries for faster data retrieval using indexing.
+◦ Built secure CRUD operations with data validation and rollback for safe transaction handling.
+Certifications
+• MongoDB Atlas Administrator Path – MongoDB
+• Industrial Training Certification – NSIC Technical Services Centre, Hyderabad
+• GitHub Foundations Certification – GitHub Education
+• Cyber Job Simulation Certification – Deloitte Australia (Forage)
