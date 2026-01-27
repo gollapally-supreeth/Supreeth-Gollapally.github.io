@@ -90,9 +90,9 @@ const Navbar = () => {
                             boxShadow: useTransform(smoothShadow, v => `0 10px 40px -10px rgba(0,0,0, ${v})`)
                         }}
                     >
-                        {/* Mobile: Logo / Brand Name (Optional, keeps it balanced) */}
-                        <div className="md:hidden text-white font-bold tracking-wider text-sm pl-2">
-                            SG.
+                        {/* Mobile: Logo / Brand Name */}
+                        <div className="md:hidden pl-2">
+                            <img src="/logo.png" alt="SG Logo" className="h-8 w-auto object-contain" />
                         </div>
 
                         {/* DESKTOP LINKS */}
@@ -166,8 +166,8 @@ const Navbar = () => {
                                         setIsMobileMenuOpen(false);
                                     }}
                                     className={`text-lg font-medium p-4 rounded-xl transition-all ${activeSection === link.name
-                                            ? 'bg-[var(--accent-color)] text-black font-bold'
-                                            : 'text-white/70 hover:bg-white/5 hover:text-white'
+                                        ? 'bg-[var(--accent-color)] text-black font-bold'
+                                        : 'text-white/70 hover:bg-white/5 hover:text-white'
                                         }`}
                                 >
                                     {link.name}
