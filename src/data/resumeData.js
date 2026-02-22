@@ -7,7 +7,6 @@ export const resumeData = {
     github: "gollapally-supreeth",
     instagram: "suprith_111",
     leetcode: "Suprith_111",
-    x: "",
     role: "Software Developer",
     summary: "Tech Enthusiast Software Developer skilled in Java, Python, and C, with a passion for AI, automation,full-stack development and Cyber Security. Strong in DSA and real-world problem-solving, also experienced in stock trading and risk analysis."
   },
@@ -66,7 +65,7 @@ export const resumeData = {
     platforms: [
       { name: "Linux (Kali/Ubuntu)", level: 75 },
       { name: "Windows", level: 90 },
-      { name: "AWS", level: 40 },
+      { name: "AWS", level: 80 },
       { name: "Raspberry Pi", level: 55 },
       { name: "Vercel", level: 85 },
       { name: "Netlify", level: 75 }
@@ -120,17 +119,18 @@ export const resumeData = {
 
   ],
   projects: [
+
     {
-      name: "E-Library – Digital Library Website",
-      tech: ["Node.js", "MongoDB", "Google Drive"],
-      image: "/assets/e-library_project.png",
-      link: "https://e-library.tech/", // Add your live preview URL here
-      github: "https://github.com/gollapally-supreeth/eLibrary", // Add your GitHub repo URL here
-      description: "Scalable digital library platform with separate admin/user portals.",
+      name: "E-Library v2.0 – Production-Ready Digital Library Platform",
+      tech: ["MERN-Stack", "AWS EC2", "Cloudflare", "CI/CD", "Docker"],
+      image: "/assets/e-library.png",
+      link: "https://e-library.tech/",
+      github: "https://github.com/gollapally-supreeth/eLibrary/tree/E-Library-v2.0",
+      description: "Redesigned and rebuilt a MERN-stack production-ready digital library with secure JWT auth and role-based access.",
       points: [
-        "Implemented advanced features like category filtering, favorites, and reading interface.",
         "Built a fully responsive UI with modern design principles and role-based access control (RBAC).",
-        "Integrated search by title/author with fuzzy matching to improve discoverability"
+        "Deployed backend on AWS EC2 (Nginx + SSL) and frontend on Cloudflare Pages with custom domain.",
+        "Implemented GitHub Actions CI/CD and production process management using PM2."
       ]
     },
     {
@@ -142,18 +142,20 @@ export const resumeData = {
       description: "A Simple file transfer system supporting 500MB uploads and drag-and-drop UI.",
       points: [
         "Used React + Vite on frontend and Node.js + Express on backend with modular routing.",
-        "Integrated GSAP animations, and TailwindCSS for responsive, accessible UI."
+        "Integrated GSAP animations, and TailwindCSS for responsive, accessible UI.",
+        "Integrated Appwrite for backend services including authentication, database, and file storage."
       ]
     },
     {
-      name: "Student Management System Software",
-      tech: ["Python", "Tkinter", "MySQL"],
-      image: "/assets/student-management_project.jpeg",
-      description: "Python GUI application for managing student profiles, attendance, and records.",
-      github: "https://github.com/gollapally-supreeth/student_profile_management_system-main", // Add your GitHub repo URL here
+      name: "Semantic Entropy File System",
+      tech: ["Python", "PyQt6", "HDBSCAN", "UMAP"],
+      image: "/assets/project-3.png",
+      description: "A revolutionary AI-powered file organization system that uses Deep Learning and LLMs to understand file meaning and auto-organize them into semantically relevant folders — beyond just extensions.",
+      github: "https://github.com/gollapally-supreeth/Semantic-Entropy-File-System-Project",
       points: [
-        "Integrated backend with MySQL and optimized queries for faster data retrieval.",
-        "Built secure CRUD operations with data validation and rollback."
+        "Groups files by semantic content using embeddings — PDFs and TXTs on the same topic live together, named by Gemini API.",
+        "Real-time Watchdog monitoring auto-reorganizes files on any change, with PyQt6 2D Semantic Map for cluster visualization.",
+        "Multi-format text extraction (PDFs, Word Docs, Markdown, plain text) with HDBSCAN + UMAP clustering pipeline."
       ]
     }
   ],
@@ -169,7 +171,7 @@ export const resumeData = {
   },
   navbar: {
     ctaText: "Resume",
-    resumeLink: "https://drive.google.com/file/d/1zQDScMsGEtdB3RbF3rMfpxX_dzBGVy_9/view?usp=sharing"
+    resumeLink: "https://drive.google.com/file/d/18dGjHJX6mZJqkJiTq8zeNJscDRCSi9MG/view?usp=sharing"
   },
   contact: {
     cta: "Let's Work Together."
