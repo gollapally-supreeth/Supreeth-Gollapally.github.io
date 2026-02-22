@@ -14,20 +14,62 @@ const Hero = () => {
     const yText = useTransform(scrollYProgress, [0, 1], [0, 300]);
     const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.05,
+                delayChildren: 0.5
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1]
+            }
+        }
+    };
+
     return (
         <section ref={containerRef} className="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center pt-20">
 
             {/* Name as Main Background Layer */}
-            <div className="absolute inset-x-0 top-[22%] flex flex-col items-center justify-center pointer-events-none select-none z-0">
-                <h1 className="text-[9vw] md:text-[10vw] font-black leading-[0.8] tracking-tighter font-display text-center">
-                    <span className="bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent opacity-30 block">
-                        {resumeData.hero.title1}
-                    </span>
-                    <span className="bg-gradient-to-b from-gray-500 to-gray-900 bg-clip-text text-transparent opacity-30 block">
-                        {resumeData.hero.title2}
-                    </span>
-                </h1>
-            </div>
+            <motion.div
+                initial="hidden"
+                animate="visible"
+                style={{ y: yText, opacity: opacityText }}
+                className="absolute inset-x-0 top-[22%] flex flex-col items-center justify-center pointer-events-none select-none z-0 px-4"
+            >
+                <div className="relative">
+                    <h1 className="text-[9vw] md:text-[10vw] font-black leading-[0.8] tracking-tighter font-display text-center">
+                        <div className="relative flex flex-col">
+                            <motion.span
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 0.3, y: 0 }}
+                                transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                                className="bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent block"
+                            >
+                                {resumeData.hero.title1}
+                            </motion.span>
+                            <motion.span
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 0.3, y: 0 }}
+                                transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                                className="bg-gradient-to-b from-gray-500 to-gray-900 bg-clip-text text-transparent block"
+                            >
+                                {resumeData.hero.title2}
+                            </motion.span>
+                        </div>
+                    </h1>
+                </div>
+            </motion.div>
 
             <div className="z-10 w-full max-w-7xl px-6 md:px-12 flex flex-col items-center justify-center h-full relative">
 

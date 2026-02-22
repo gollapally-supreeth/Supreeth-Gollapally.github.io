@@ -20,7 +20,9 @@
 
 }
 
+html,
 body {
+    position: relative;
     background-color: var(--bg-color);
     color: var(--text-primary);
     font-family: var(--font-primary);
