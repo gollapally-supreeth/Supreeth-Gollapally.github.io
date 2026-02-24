@@ -123,7 +123,7 @@ export const resumeData = {
     {
       name: "E-Library v2.0 – Production-Ready Digital Library Platform",
       tech: ["MERN-Stack", "AWS EC2", "Cloudflare", "CI/CD", "Docker"],
-      image: "/assets/e-library.png",
+      image: "/assets/e-library.webp",
       link: "https://e-library.tech/",
       github: "https://github.com/gollapally-supreeth/eLibrary/tree/E-Library-v2.0",
       description: "Redesigned and rebuilt a MERN-stack production-ready digital library with secure JWT auth and role-based access.",
@@ -136,7 +136,7 @@ export const resumeData = {
     {
       name: "Drop & Share – File Sharing Platform",
       tech: ["React", "Vite", "Node.js", "Express", "Appwrite"],
-      image: "/assets/drop&share_project.png",
+      image: "/assets/drop&share_project.webp",
       link: "https://simple-transfile.netlify.app/",
       github: "https://github.com/gollapally-supreeth/Trans-File", // Add your GitHub repo URL here
       description: "A Simple file transfer system supporting 500MB uploads and drag-and-drop UI.",
@@ -149,7 +149,7 @@ export const resumeData = {
     {
       name: "Semantic Entropy File System",
       tech: ["Python", "PyQt6", "HDBSCAN", "UMAP"],
-      image: "/assets/project-3.png",
+      image: "/assets/project-3.webp",
       description: "A revolutionary AI-powered file organization system that uses Deep Learning and LLMs to understand file meaning and auto-organize them into semantically relevant folders — beyond just extensions.",
       github: "https://github.com/gollapally-supreeth/Semantic-Entropy-File-System-Project",
       points: [

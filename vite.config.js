@@ -4,47 +4,42 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/',
   plugins: [react()],
-  assetsInclude: ['**/*.glb', '**/*.png'],
+  assetsInclude: ['**/*.glb', '**/*.png', '**/*.webp'],
   server: {
     host: true
   },
   build: {
     target: 'esnext',
-    chunkSizeWarningLimit: 1500,
+    chunkSizeWarningLimit: 3500,
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // Three.js and all R3F ecosystem into one lazy chunk
+          // Three.js, R3F, Rapier physics, and all related WebGL libs in one
+          // lazy chunk — they are tightly coupled and always loaded together.
+          // Splitting them causes circular chunk references at runtime.
           if (
-            id.includes('three') ||
-            id.includes('@react-three/fiber') ||
-            id.includes('@react-three/drei') ||
-            id.includes('meshline') ||
-            id.includes('ogl') ||
-            id.includes('gl-matrix')
+            id.includes('node_modules/three/') ||
+            id.includes('node_modules/@react-three/') ||
+            id.includes('node_modules/@dimforge/') ||
+            id.includes('node_modules/meshline/') ||
+            id.includes('node_modules/ogl/') ||
+            id.includes('node_modules/gl-matrix/')
           ) {
             return 'three-bundle';
           }
-          // Physics engine is very large – separate chunk
-          if (id.includes('@react-three/rapier') || id.includes('@dimforge')) {
-            return 'physics-bundle';
-          }
-          // Framer Motion in its own chunk
-          if (id.includes('framer-motion')) {
+          // Framer Motion
+          if (id.includes('node_modules/framer-motion/')) {
             return 'framer-motion';
           }
-          // GSAP
-          if (id.includes('gsap')) {
-            return 'gsap';
-          }
           // React core
-          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+          if (
+            id.includes('node_modules/react/') ||
+            id.includes('node_modules/react-dom/') ||
+            id.includes('node_modules/scheduler/')
+          ) {
             return 'react-vendor';
           }
-          // Everything else in node_modules → vendor
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
+          // Everything else: let Rollup auto-chunk to avoid circular dependencies
         }
       }
     }

@@ -14,7 +14,7 @@ import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 
 import cardGLB from '/assets/card.glb';
-import lanyardTexture from '/assets/lanyard.png';
+import lanyardTexture from '/assets/lanyard.webp';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -107,7 +107,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, onInteract }) {
 
     const { nodes, materials } = useGLTF(cardGLB);
     const texture = useTexture(lanyardTexture);
-    const cardTexture = useTexture('/assets/card-texture.png');
+    const cardTexture = useTexture('/assets/card-texture.webp');
 
     // Flip texture horizontally to fix reversed display
     useEffect(() => {

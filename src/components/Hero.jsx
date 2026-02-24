@@ -16,6 +16,10 @@ const Hero = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
+        // On mobile, skip Three.js entirely — the 3MB bundle download on a slow
+        // mobile connection costs more than the visual benefit of the 3D card.
+        if (window.innerWidth < 768) return;
+
         if ('requestIdleCallback' in window) {
             const id = requestIdleCallback(() => setShowLanyard(true), { timeout: 2000 });
             return () => cancelIdleCallback(id);
