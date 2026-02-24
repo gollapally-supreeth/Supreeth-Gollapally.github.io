@@ -312,6 +312,8 @@ const ProjectCard = ({ project, index }) => (
                         <img
                             src={project.image || `https://picsum.photos/id/${index + 130}/1600/1000`}
                             alt={project.name}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover"
                         />
                     </div>

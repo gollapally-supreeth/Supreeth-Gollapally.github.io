@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { ReactLenis } from '@studio-freight/react-lenis';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
 
+// Lazy load all below-fold sections — keeps the initial JS bundle small
+// so FCP/LCP happen much sooner
+const About = React.lazy(() => import('./components/About'));
+const Skills = React.lazy(() => import('./components/Skills'));
+const Experience = React.lazy(() => import('./components/Experience'));
+const Projects = React.lazy(() => import('./components/Projects'));
+const Contact = React.lazy(() => import('./components/Contact'));
 
 function App() {
     return (
@@ -17,13 +19,15 @@ function App() {
                 <Background />
                 <Navbar />
 
-
                 <Hero />
-                <About />
-                <Skills />
-                <Experience />
-                <Projects />
-                <Contact />
+
+                <Suspense fallback={null}>
+                    <About />
+                    <Skills />
+                    <Experience />
+                    <Projects />
+                    <Contact />
+                </Suspense>
             </div>
         </ReactLenis>
     );

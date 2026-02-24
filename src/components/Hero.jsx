@@ -1,11 +1,29 @@
-import React, { useRef } from 'react';
+import React, { useRef, Suspense, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import Lanyard from './Lanyard';
 import { resumeData } from '../data/resumeData';
+
+// Lanyard pulls in Three.js + Rapier physics (~4 MB).
+// Do NOT mount it eagerly — even with React.lazy, Suspense blocks the render
+// tree until the chunk downloads, making FCP worse. Instead, mount it only after
+// the browser goes idle so the hero text can paint on the first frame.
+const Lanyard = React.lazy(() => import('./Lanyard'));
 
 const Hero = () => {
     const [hasInteracted, setHasInteracted] = React.useState(false);
+    // Mount the 3D card only after the browser has gone idle.
+    // This guarantees FCP is the plain hero text, not the Three.js bundle.
+    const [showLanyard, setShowLanyard] = useState(false);
     const containerRef = useRef(null);
+
+    useEffect(() => {
+        if ('requestIdleCallback' in window) {
+            const id = requestIdleCallback(() => setShowLanyard(true), { timeout: 2000 });
+            return () => cancelIdleCallback(id);
+        }
+        const id = setTimeout(() => setShowLanyard(true), 300);
+        return () => clearTimeout(id);
+    }, []);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"]
@@ -73,15 +91,19 @@ const Hero = () => {
 
             <div className="z-10 w-full max-w-7xl px-6 md:px-12 flex flex-col items-center justify-center h-full relative">
 
-                {/* 3D Lanyard - Layered ON TOP of text */}
+                {/* 3D Lanyard - Deferred until browser is idle to not block FCP */}
                 <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                     <div className="w-full h-full pointer-events-auto">
-                        <Lanyard
-                            position={[0, 0, 20]}
-                            gravity={[0, -40, 0]}
-                            cameraDistance={19}
-                            onInteract={() => setHasInteracted(true)}
-                        />
+                        {showLanyard && (
+                            <Suspense fallback={null}>
+                                <Lanyard
+                                    position={[0, 0, 20]}
+                                    gravity={[0, -40, 0]}
+                                    cameraDistance={19}
+                                    onInteract={() => setHasInteracted(true)}
+                                />
+                            </Suspense>
+                        )}
                     </div>
                 </div>
 

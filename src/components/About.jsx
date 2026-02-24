@@ -1,9 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, Suspense } from 'react';
 import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { Code, Cpu, TrendingUp, Zap, ArrowUpRight, Globe, Shield, Activity } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
-import ParticleImage from './ParticleImage';
+// ParticleImage uses Three.js TextGeometry — lazy load it so the About section
+// text and layout paint immediately without waiting for the 3D canvas
+const ParticleImage = React.lazy(() => import('./ParticleImage'));
 
 // --- Components ---
 
@@ -24,7 +26,9 @@ const BentoCard = ({ children, className = "", delay = 0, symbol = null }) => {
             {/* Particle Effect Layer */}
             {symbol && (
                 <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                    <ParticleImage symbol={symbol} isHovered={isHovered} />
+                    <Suspense fallback={null}>
+                        <ParticleImage symbol={symbol} isHovered={isHovered} />
+                    </Suspense>
                 </div>
             )}
 
