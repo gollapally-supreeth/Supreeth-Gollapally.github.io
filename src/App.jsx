@@ -3,6 +3,7 @@ import { ReactLenis } from '@studio-freight/react-lenis';
 import Hero from './components/Hero';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
+import CustomCursor from './components/CustomCursor';
 
 // Lazy load all below-fold sections — keeps the initial JS bundle small
 // so FCP/LCP happen much sooner
@@ -16,6 +17,7 @@ function App() {
     return (
         <ReactLenis root>
             <div className="app-container relative selection:bg-[var(--accent-color)] selection:text-black">
+                <CustomCursor />
                 <Background />
                 <Navbar />
 

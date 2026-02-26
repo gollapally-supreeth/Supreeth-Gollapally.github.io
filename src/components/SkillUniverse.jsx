@@ -66,7 +66,7 @@ const SkillUniverse = ({ skillsData }) => {
 
             // AUTO-SCALE
             const minDim = Math.min(width, height);
-            const scaleFactor = minDim < 800 ? minDim / 1000 : 1;
+            const scaleFactor = minDim < 800 ? minDim / 900 : 1;
 
             const R_Cat = CONFIG.baseCatRadius * scaleFactor;
 
@@ -368,7 +368,7 @@ const SkillUniverse = ({ skillsData }) => {
     }, [skillsData]);
 
     return (
-        <div ref={containerRef} className="w-full h-[1400px] relative">
+        <div ref={containerRef} className="w-screen h-[150vh] relative">
             <canvas ref={canvasRef} className="block w-full h-full" />
 
 

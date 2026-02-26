@@ -101,3 +101,8 @@ html.lenis {
 .animate-pulse-slow {
     animation: pulse-slow 8s infinite ease-in-out;
 }
+
+/* ── Custom Cursor (desktop / pointer:fine only) ────────── */
+@media (pointer: fine) {
+    *, *::before, *::after { cursor: none !important; }
+}

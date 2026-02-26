@@ -32,7 +32,7 @@ const Contact = () => {
                             className="text-6xl md:text-8xl font-black font-display text-white leading-[0.9] tracking-tighter mb-8"
                         >
                             LET'S <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-600">
+                            <span className="text-[var(--accent-color)]">
                                 CONNECT
                             </span>
                         </motion.h2>

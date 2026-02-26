@@ -48,10 +48,11 @@ const Skills = () => {
     const x2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
     return (
-        <section id="skills" ref={containerRef} className="py-20 md:py-32 relative overflow-hidden">
+        <section id="skills" ref={containerRef} className="py-20 md:py-20 relative overflow-hidden">
 
 
 
+            {/* Header + Marquee — constrained */}
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -65,7 +66,7 @@ const Skills = () => {
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
                         A comprehensive suite of tools and technologies I use to build scalable, high-performance solutions.
                         <span className="text-white/80 font-medium">
-                            Visualized as a Graph where <span className="text-[var(--accent-color)] font-bold">Proximity indicates Mastery.</span> The closer a skill is to its center, the higher my proficiency.
+                            {' '}Visualized as a Graph where <span className="text-[var(--accent-color)] font-bold">Proximity indicates Mastery.</span> The closer a skill is to its center, the higher my proficiency.
                         </span>
                     </p>
                 </motion.div>
@@ -74,14 +75,20 @@ const Skills = () => {
                 {resumeData.skills?.marquee && (
                     <TechMarquee items={resumeData.skills.marquee} />
                 )}
-
-                {/* Skill Universe Graph */}
-                <div className="flex justify-center mt-10">
-                    {resumeData.skills && (
-                        <SkillUniverse skillsData={resumeData.skills} />
-                    )}
-                </div>
             </div>
+
+            {/* Skill Universe Graph — full viewport width */}
+            {resumeData.skills && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full relative z-10"
+                >
+                    <SkillUniverse skillsData={resumeData.skills} />
+                </motion.div>
+            )}
         </section>
     );
 };

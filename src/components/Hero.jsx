@@ -16,10 +16,6 @@ const Hero = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        // On mobile, skip Three.js entirely — the 3MB bundle download on a slow
-        // mobile connection costs more than the visual benefit of the 3D card.
-        if (window.innerWidth < 768) return;
-
         if ('requestIdleCallback' in window) {
             const id = requestIdleCallback(() => setShowLanyard(true), { timeout: 2000 });
             return () => cancelIdleCallback(id);
@@ -95,9 +91,10 @@ const Hero = () => {
 
             <div className="z-10 w-full max-w-7xl px-6 md:px-12 flex flex-col items-center justify-center h-full relative">
 
-                {/* 3D Lanyard - Deferred until browser is idle to not block FCP */}
+                {/* 3D Lanyard — deferred until idle on all screen sizes */}
                 <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                     <div className="w-full h-full pointer-events-auto">
+                        {/* Full 3D physics card (deferred until idle) */}
                         {showLanyard && (
                             <Suspense fallback={null}>
                                 <Lanyard
@@ -108,12 +105,13 @@ const Hero = () => {
                                 />
                             </Suspense>
                         )}
+
                     </div>
                 </div>
 
-                {/* Interaction Hint */}
+                {/* Interaction Hint — shown when the 3D card is active and not yet interacted */}
                 <AnimatePresence>
-                    {!hasInteracted && (
+                    {showLanyard && !hasInteracted && (
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
